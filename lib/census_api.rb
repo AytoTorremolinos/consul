@@ -50,7 +50,7 @@ class CensusApi
     private
 
       def data
-        @body[:get_habita_datos_response][:get_habita_datos_return]
+        @body[:get_habita_datos_response][:get_habita_datos_result]
       end
   end
 

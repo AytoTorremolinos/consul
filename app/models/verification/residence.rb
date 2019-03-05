@@ -26,7 +26,7 @@ class Verification::Residence
 
   def save
     return false unless valid?
-
+    Rails.logger.warn("metodo save")
     user.take_votes_if_erased_document(document_number, document_type)
 
     user.update(document_number:       document_number,
@@ -71,10 +71,10 @@ class Verification::Residence
   private
 
     def retrieve_census_data
-      @census_data = CensusCaller.new.call(document_type, document_number)
+      @census_data = CensusCaller.new.call(document_type, document_number)     
     end
 
-    def residency_valid?
+    def residency_valid?      
       @census_data.valid? &&
         @census_data.postal_code == postal_code &&
         @census_data.date_of_birth == date_of_birth

@@ -35,15 +35,17 @@ module Verification
   end
 
   def sms_verified?
-    return true if skip_verification?
-    confirmed_phone.present?
+    #return true if skip_verification?
+    #confirmed_phone.present?
+    return true
   end
 
-  def level_two_verified?
-    return true if skip_verification?
-    level_two_verified_at.present? || (residence_verified? && sms_verified?)
+  def level_two_verified?    
+    #return true if skip_verification?
+    #level_two_verified_at.present? || (residence_verified? && sms_verified?)
+    return true
   end
-
+  
   def level_three_verified?
     return true if skip_verification?
     verified_at.present?
